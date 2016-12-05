@@ -42,14 +42,15 @@ const json = [
 ]
 
 
-// string to objects
-var map = json.map(obj => `{"year": ${obj["year"].substring(0,4)},"${obj["partner"]}":${obj["value"]}}`)
-var str = `[${map}]`
-var obj = JSON.parse(str)
-console.log(obj)
-console.log(Object.keys(obj[0]).filter(ele=> ele != "year"))
-
-console.log(typeof(Object.keys(obj[0]).filter(ele=> ele != "year").toString()))
+// // // string to objects
+// var map = json.map(obj => `{"year": ${obj["year"].substring(0,4)},"${obj["partner"]}":${obj["value"]}}`)
+// var str = `[${map}]`
+// var obj = JSON.parse(str)
+// console.log(obj)
+// console.log(obj[0])
+// console.log(Object.keys(obj[0]).filter(ele=> ele != "year"))
+// console.log(typeof(Object.keys(obj[0]).filter(ele=> ele != "year").toString()))
+// console.log(typeof(obj));
 
 
 
