@@ -11,11 +11,11 @@ componentWillMount(){
     //很適合事先存資料（此方法會在render()執行前會執行一次）
     axios.get('https://raw.githubusercontent.com/aady5566/APIs/master/asdas.json')//not from local (need to deal with CORS)
       .then(res => {
-        console.log(res.data)
-        console.log(res.status)
-        console.log(res.statusText)
-        console.log(res.headers)
-        console.log(res.config)
+        // console.log(res.data)
+        // console.log(res.status)
+        // console.log(res.statusText)
+        // console.log(res.headers)
+        // console.log(res.config)
         this.setState({rdata: res.data})
       })//setState is the only way to modify react state.
       //note: 更改狀態不會用 this.state.json = [{},{},{}] 只有初始值  或呼叫json才這樣寫
@@ -32,16 +32,20 @@ formatRecharts(data) {
 }
 // TODO
 forDataKey(obj){
-  var dataKey = Object.keys(obj[0]).filter(ele=> ele != "year").toString()
+  var dataKey = Object.keys(obj[0]).filter(ele=> ele !== "year").toString()
   return dataKey
 }
   render () {
+    /*
     console.log('in render',this.state.rdata);
+    */
     if(this.state.rdata.length>0){
       let obj = this.formatRecharts(this.state.rdata)
-      console.log(typeof(obj));
-      console.log(obj, this.state.rdata);
-      console.log(Object.keys(obj[0]).filter(ele => ele != "year"))
+      /*
+        console.log(typeof(obj));
+        console.log(obj, this.state.rdata);
+        console.log(Object.keys(obj[0]).filter(ele => ele != "year"))
+        */
       return(
         <div>
           <h1>Git Test</h1>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Demo from './Demo'
+// import Demo from './Demo'
 import ToRechartsFormat from './ToRechartsFormat'
 import AxiosData from './AxiosData'
 import GitData from './GitData'

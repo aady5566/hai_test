@@ -75,7 +75,7 @@ class ToRechartsFormat extends React.Component {
          <Tooltip/>
          <Legend />
          {/*{Object.keys(this.formatRecharts(json)[0]).filter(ele=> ele != "year").toString()} 這裡的keys已經只剩下  year 和 partner name, 目標為 避免取到 year 而是 partner name 當成參數傳*/}
-         <Line type="monotone" dataKey={Object.keys(this.formatRecharts(json)[0]).filter(ele=> ele != "year").toString()} stroke="#8884d8" activeDot={{r: 8}}/>
+         <Line type="monotone" dataKey={Object.keys(this.formatRecharts(json)[0]).filter(ele=> ele !== "year").toString()} stroke="#8884d8" activeDot={{r: 8}}/>
         </LineChart>
       </div>
     )
