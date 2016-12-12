@@ -1,20 +1,22 @@
 import React from 'react'
-// import Demo from './Demo'
+import RawData from './RawData'
 import ToRechartsFormat from './ToRechartsFormat'
-import AxiosData from './AxiosData'
 import GitData from './GitData'
+import AxiosData from './AxiosData'
+import OnScroll from './OnScroll'
 
-class RechartLine extends React.Component {
+class App extends React.Component {
   render () {
     return(
       <div>
-        {/*<Demo />*/}
-        <ToRechartsFormat />
-        <GitData/>
-        <AxiosData />
+        <OnScroll />
+        <RawData />
+        {/*<ToRechartsFormat />*/}
+        {/*<GitData/>*/}
+        {/*<AxiosData />*/}
       </div>
     )
   }
 }
 
-export default RechartLine;
+export default App;

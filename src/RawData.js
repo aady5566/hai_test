@@ -11,7 +11,7 @@ const data = [
       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
 
-class Demo extends React.Component {
+class RawData extends React.Component {
   render () {
     return(
       <LineChart width={600} height={300} data={data}
@@ -27,4 +27,4 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo;
+export default RawData;
