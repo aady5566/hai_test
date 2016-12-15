@@ -32,7 +32,7 @@ formatRecharts(data) {
 }
 // TODO
 forDataKey(obj){
-  var dataKey = Object.keys(obj[0]).filter(ele=> ele !== "year").toString()
+  var dataKey = Object.keys(obj[0]).filter(ele => ele !== "year").toString()
   return dataKey
 }
   render () {
@@ -48,7 +48,7 @@ forDataKey(obj){
         */
       return(
         <div>
-          <h1>Git Test</h1>
+          <h1>Axios Test</h1>
           <p>{typeof(obj)}</p>
           <LineChart width={600} height={300} data={obj}
                 margin={{top: 5, right: 30, left: 20, bottom: 5}}>

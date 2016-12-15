@@ -10,7 +10,8 @@
     "axios": "^0.15.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "recharts": "^0.19.0"
+    "recharts": "^0.19.0",
+    "vivus": "^0.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
