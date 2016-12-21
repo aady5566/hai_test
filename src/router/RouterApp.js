@@ -26,8 +26,8 @@ class RouterApp extends React.Component {
             <Redirect from="messages/:id" to="/messages/:id"/>
           </Route>{/*Inbox*/}
           <Route path="names" component={SendName} >
-            {/*<Route path="/names/:name" component={GetName}/>*/}{/*兩層*/}
-            <Route path="/names/:name" component={GetName}>
+            {/*<Route path="/names/:name" component={GetName}>*/}{/*兩層*/}
+            <Route path="/names/:name" component={GetNameSendAge}>
             {/*<Route path="/names/:name" component={GetNameSendAge}>*/}{/*試圖創造三層失敗*/}
               <Route path="/names/:name/:age" component={GetAge}/>
             </Route>{/*GetName*/}
