@@ -4,7 +4,8 @@ import ToRechartsFormat from './ToRechartsFormat'
 import GitData from './GitData'
 import AxiosData from './AxiosData'
 import OnScroll from './OnScroll'
-import VivusTest from './VivusTest'
+import RouterApp from './router/RouterApp'
+import Closure from './Closure'
 class App extends React.Component {
   render () {
     return(
@@ -13,10 +14,15 @@ class App extends React.Component {
           <OnScroll />
           <RawData />
           <ToRechartsFormat />
+          <AxiosData />
+          <VivusTest />
+          <AxiosData />
           <GitData />
           <AxiosData />
+          <GitData />
+          <Closure/>
           */}
-        <VivusTest />
+          <RouterApp />
       </div>
     )
   }

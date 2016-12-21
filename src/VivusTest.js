@@ -1,9 +1,10 @@
 import React from 'react'
 import Vivus from 'vivus'
-
+import SVGLine from './svg/SVGLine'
 class VivusTest extends React.Component {
   componentDidMount(){
-    new Vivus('my-div', {file: "./pic/line_dana.svg"});
+    // new Vivus('my-div', {duration: 200, file: {SVGLine}});
+    new Vivus('my-div', {duration: 200, file: {SVGLine}});
   }
   render () {
     return(
@@ -12,10 +13,8 @@ class VivusTest extends React.Component {
           <svg>
              <circle cx={50} cy={50} r={10} fill="red" />
           </svg>
+          <div id="my-div"></div>
           */}
-        <svg width={200} height={200}>
-          <path d="M200 0 L0 200" stroke="black"/>
-        </svg>
         <div id="my-div"></div>
       </div>
     )

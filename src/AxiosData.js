@@ -9,7 +9,8 @@ class AxiosData extends React.Component {
 }
 componentWillMount(){
     //很適合事先存資料（此方法會在render()執行前會執行一次）
-    axios.get('/api/partners?reporter=asd&hs2=asd&partner=asd')//not from local (need to deal with CORS)
+    // /api/partners?reporter=asd&hs2=asd&partner=asd
+    axios.get('http://192.168.12.151/api/v1/partners?reporter=Taipei,%20Chinese&hs2=85&partner=Hong%20Kong,%20China')//not from local (need to deal with CORS)
       .then(res => {
         // console.log(res.data)
         // console.log(res.status)

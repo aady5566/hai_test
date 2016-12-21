@@ -9,7 +9,7 @@ class GitData extends React.Component {
 }
 componentWillMount(){
     //很適合事先存資料（此方法會在render()執行前會執行一次）
-    axios.get('https://raw.githubusercontent.com/aady5566/APIs/master/asdas.json')//not from local (need to deal with CORS)
+    axios.get('https://raw.githubusercontent.com/aady5566/APIs/master/fakeData.json')//not from local (need to deal with CORS)
       .then(res => {
         // console.log(res.data)
         // console.log(res.status)
