@@ -23,14 +23,17 @@ class RouterApp extends React.Component {
             {/*使用絕對路徑 /messages/:id將 ui和 uri 解耦出來*/}
             <Route path="/messages/:id" component={Message} />
               {/* 跳转 /inbox/messages/:id 到 /messages/:id */}
-            <Redirect from="messages/:id" to="/messages/:id"/>
+            <Redirect from="messages/:id" to="/messages/:id" />
           </Route>{/*Inbox*/}
           <Route path="names" component={SendName} >
+            <Route path="/names/:name" component={GetName}/>
             {/*<Route path="/names/:name" component={GetName}>*/}{/*兩層*/}
-            <Route path="/names/:name" component={GetNameSendAge}>
-            {/*<Route path="/names/:name" component={GetNameSendAge}>*/}{/*試圖創造三層失敗*/}
-              <Route path="/names/:name/:age" component={GetAge}/>
-            </Route>{/*GetName*/}
+            {/*
+              <Route path="/names/:name" component={GetNameSendAge}>
+                <Route path="/names/:name/:age" component={GetAge} />
+              </Route>{/*GetName*/}
+              */}
+
           </Route>{/*SendName*/}
         </Route>{/*Home*/}
       </Router>

@@ -1,0 +1,11 @@
+.body_rePro_info_DT{
+  display: flex;
+}
+/*#Popupbox-wrapper{
+  background-color: #a00;
+  overflow: scroll;
+}*/
+.body_rePro_info_DT-left,.body_rePro_info_DT-right{
+  width: 35vw;
+  padding: 20px;
+}

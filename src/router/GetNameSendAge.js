@@ -15,6 +15,7 @@ class GetNameSendAge extends React.Component {
     console.log(this.props.params.name);
     return(
       <div>
+        <h3>GetNameSendAge</h3>
         <p>name: {this.props.params.name}</p>
         <h3>plz input the age</h3>
         {/* add this form */}
