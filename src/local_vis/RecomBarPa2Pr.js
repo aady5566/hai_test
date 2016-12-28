@@ -1,12 +1,12 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
-// data_results for datatable
+// data_results for bar
 import results from '../data/result_wechat_pa2pr_partial.json';
 
 function filter_valueComparison(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
   let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
   // console.log(filteredData[0]["Recommend List"][topn-1]["Predict Sales"]);
-  console.log(filteredData[0]["Recommend List"][topn-1]["Product"][0])
+  // console.log(filteredData[0]["Recommend List"][topn-1]["Product"][0])
   let recomProduct = filteredData[0]["Recommend List"][topn-1]["Product"][0] // setting variable as key
   return [
     [
@@ -17,8 +17,8 @@ function filter_valueComparison(data,hs2,partner,topn){//topn: 第 n 個推薦�
   ]
 }
 let data_bar = filter_valueComparison(results,"05","Bulgaria",1)
-console.log(data_bar);
-console.log(data_bar[1]);
+// console.log(data_bar);
+// console.log(data_bar[1]);
 
 // // testing data
 // const data = [{ name: 'a', "Trade Value": 12 },{ name: 'b', "Trade Value": 30 },{ name: 'c', "Trade Value": 16 },{ name: 'd', "Trade Value": 100 },{ name: 'e', "Trade Value": 0 }]

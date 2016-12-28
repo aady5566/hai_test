@@ -26,7 +26,7 @@ function filter_dataTable(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n
 }
 
 let data_datatable = filter_dataTable(results,"05","Bulgaria",1)
-console.log(data_datatable);
+// console.log(data_datatable);
 
 class ReasonTablePa2Pr extends Component{
   render(){

@@ -11,6 +11,7 @@ import DataTable from './DataTable'
 import BarTop5Pa2Pr from './local_vis/BarTop5Pa2Pr'
 import ReasonTablePa2Pr from './local_vis/ReasonTablePa2Pr'
 import RecomBarPa2Pr from './local_vis/RecomBarPa2Pr'
+import RecomPiePa2Pr from './local_vis/RecomPiePa2Pr'
 class App extends React.Component {
   render () {
     return(
@@ -30,9 +31,10 @@ class App extends React.Component {
           <Pie />
           <DataTable />
           */}
-
+        <BarTop5Pa2Pr />
         <ReasonTablePa2Pr />
         <RecomBarPa2Pr />
+        <RecomPiePa2Pr />
       </div>
     )
   }
