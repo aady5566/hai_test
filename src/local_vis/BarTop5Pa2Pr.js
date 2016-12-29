@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 // data_raw for pie
 import raws from '../data/raw_wechat_china_partner_top5pr.json';
 
-function filter_top5ProductValue(data,hs2,partner){//topn: 第 n 個推薦結果 n=1,2,3
+function filter_top5ProductValue(data,hs2,partner){
   let filteredData = data.filter(obj => (obj.hs2 === hs2 && obj.ptTitle === partner))
   let partnerName = filteredData[0].ptTitle // in order to set the bar legend
   // data transformation
@@ -19,11 +19,8 @@ function filter_top5ProductValue(data,hs2,partner){//topn: 第 n 個推薦結果
     )
   }
   return [newArray,partnerName]
-
-
 }
 let data_bar = filter_top5ProductValue(raws,"85","Afghanistan")
-console.log(data_bar);
 
 
 // // data format demo

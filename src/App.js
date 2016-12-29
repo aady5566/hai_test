@@ -8,10 +8,11 @@ import RouterApp from './router/RouterApp'
 import Closure from './Closure'
 import Pie from './Pie'
 import DataTable from './DataTable'
+import RecomPiePa2Pr2Top5Pa from './local_vis/RecomPiePa2Pr2Top5Pa'
 import BarTop5Pa2Pr from './local_vis/BarTop5Pa2Pr'
 import ReasonTablePa2Pr from './local_vis/ReasonTablePa2Pr'
 import RecomBarPa2Pr from './local_vis/RecomBarPa2Pr'
-import RecomPiePa2Pr from './local_vis/RecomPiePa2Pr'
+
 class App extends React.Component {
   render () {
     return(
@@ -31,10 +32,14 @@ class App extends React.Component {
           <Pie />
           <DataTable />
           */}
+        <h1>第三選項選完後的圖 partner 2 product</h1>
         <BarTop5Pa2Pr />
-        <ReasonTablePa2Pr />
+        <h1>第四選項選完後的圖表 partner 2 product</h1>
         <RecomBarPa2Pr />
-        <RecomPiePa2Pr />
+        <RecomPiePa2Pr2Top5Pa />
+        <ReasonTablePa2Pr />
+
+
       </div>
     )
   }

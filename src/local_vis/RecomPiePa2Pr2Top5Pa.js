@@ -2,27 +2,29 @@ import React from 'react';
 import {PieChart, Pie, Sector, Cell}  from 'recharts';
 
 
-// data_results for pie
-import results from '../data/result_wechat_pa2pr_partial.json';
+// data_raw for pie
+import raws from '../data/raw_wechat_china_hs6_top5pa.json';
 
-function filter_valueComparison(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
-  let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
-  // console.log(filteredData[0]["Recommend List"][topn-1]["Predict Sales"]);
-  // console.log(filteredData[0]["Recommend List"][topn-1]["Product"][0])
-  let recomProduct = filteredData[0]["Recommend List"][topn-1]["Product"][0] // setting variable as key
-  return [
-    [
-      {name: "Actual sales",[recomProduct]: filteredData[0]["Recommend List"][topn-1]["Sales"][0] ,fill:"#8884d8"},
-      {name: "Predicted sales", [recomProduct]: filteredData[0]["Recommend List"][topn-1]["Predict Sales"][0],fill:"#8884d8"},
-      {name: "Trade gap", [recomProduct]: filteredData[0]["Recommend List"][topn-1]["Trade gap"][0],fill:"#82ca9d"}
-    ],recomProduct
-  ]
+function filter_hs6top5Pa(data,hs6){
+  let filteredData = data.filter(obj => obj.cmdCode === hs6)
+  // console.log(filteredData);
+  let newArray = []
+  for (let iter = 0; iter < filteredData.length; iter++) {
+    newArray.push(
+      {
+        name:filteredData[iter].ptTitle,
+        value:filteredData[iter].value
+      }
+    )
+  }
+  return newArray
 }
-let data_bar = filter_valueComparison(results,"05","Bulgaria",1)
+let data_pie = filter_hs6top5Pa(raws,"050210")
+// console.log(data_pie);
 
-
-const data = [{name: '美國', value: 400}, {name: '世界', value: 3000}];
-const COLORS = ['#FFBB28', '#FF8042','#0088FE', '#00C49F'];
+// // demo data
+// const data = [{name: '美國', value: 400}, {name: '世界', value: 3000},{name: 'ss', value: 400}, {name: 'qq', value: 3000},{name: 'mm', value: 3000}];
+const COLORS = ['#FFBB28', '#FF8042','#83a6ed', '#00C49F','#a4de6c'];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -68,7 +70,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-class RecomPiePa2Pr extends React.Component{
+class RecomPiePa2Pr2Top5Pa extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -87,14 +89,14 @@ class RecomPiePa2Pr extends React.Component{
         <Pie
         	activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
-          data={data}
+          data={data_pie}
           cx={300}
           cy={200}
           innerRadius={60}
           outerRadius={80}
           fill="#8884d8">
           {
-            data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            data_pie.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
        </PieChart>
@@ -102,4 +104,4 @@ class RecomPiePa2Pr extends React.Component{
   }
 }
 
-export default RecomPiePa2Pr ;
+export default RecomPiePa2Pr2Top5Pa ;
