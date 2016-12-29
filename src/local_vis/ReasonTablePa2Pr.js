@@ -9,7 +9,6 @@ import results from '../data/result_wechat_pa2pr_partial.json';
 
 function filter_dataTable(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
   let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
-
   // data transformation for data.table
   let newArray = []
   for (let iter = 0; iter < 10; iter++) {
