@@ -2,9 +2,9 @@ import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 // data_results for bar
 import results from '../data/result_wechat_pa2pr_partial.json';
-
-function filter_valueComparison(data,reporter,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
-  let filteredData = data.filter(obj => (obj.Reporter[0] === reporter && obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
+function filter_valueComparison(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
+  let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
+  console.log(filteredData);
   // console.log(filteredData[0]["Recommend List"][topn-1]["Predict Sales"]);
   // console.log(filteredData[0]["Recommend List"][topn-1]["Product"][0])
   let recomProduct = filteredData[0]["Recommend List"][topn-1]["Product"][0] // setting variable as key
@@ -16,7 +16,7 @@ function filter_valueComparison(data,reporter,hs2,partner,topn){//topn: 第 n �
     ],recomProduct
   ]
 }
-let data_bar = filter_valueComparison(results,"China","05","Bulgaria",1)
+
 // console.log(data_bar);
 // console.log(data_bar[1]);
 
@@ -25,6 +25,10 @@ let data_bar = filter_valueComparison(results,"China","05","Bulgaria",1)
 // console.log(data);
 class RecomBarPa2Pr extends React.Component {
   render () {
+    const partner = this.props.partner;
+    const hs2 = this.props.hs2;
+    const hs6 = this.props.hs6;
+    let data_bar = filter_valueComparison(results,hs2,partner,hs6)
     return(
       <BarChart width={600} height={300} data={data_bar[0]}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>

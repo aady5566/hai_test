@@ -5,8 +5,8 @@ import {PieChart, Pie, Sector, Cell}  from 'recharts';
 // data_raw for pie
 import raws from '../data/raw_wechat_china_partner_top5pr.json';
 
-function filter_hs6top5Pa(data,partner){ //TODO 四個參數
-  let filteredData = data.filter(obj => obj.ptTitle === partner)
+function filter_hs6top5Pa(data,reporter,hs2,recom_partner){ //TODO 四個參數
+  let filteredData = data.filter(obj => (obj.rtTitle === reporter && obj.hs2 === hs2 && obj.ptTitle === recom_partner))
   // console.log(filteredData);
   let newArray = []
   for (let iter = 0; iter < filteredData.length; iter++) {
@@ -19,7 +19,7 @@ function filter_hs6top5Pa(data,partner){ //TODO 四個參數
   }
   return newArray
 }
-let data_pie = filter_hs6top5Pa(raws,"Thailand")
+let data_pie = filter_hs6top5Pa(raws,"China","85","Afghanistan")
 // console.log(data_pie);
 
 // // demo data

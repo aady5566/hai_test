@@ -10,12 +10,6 @@ export function selectnewHs2(newHs2) {
     hs2: newHs2
   };
 }
-export function selectnewPartner(newPartner) {
-  return {
-    type: 'PARTNER_SELECTED',
-    partner: newPartner
-  };
-}
 export function selectnewHs6(newHs6) {
   return {
     type: 'HS6_SELECTED',

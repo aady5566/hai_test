@@ -21,8 +21,8 @@ import ReasonTablePr2Pa from './local_vis/ReasonTablePr2Pa'
 import RecomBarPr2Pa from './local_vis/RecomBarPr2Pa'
 
 // redux App
-import ReduxApp from './redux/ReduxApp'
-
+// import ReduxApp from './redux/ReduxApp'
+// import RouterAll from './redux/RouterAll'
 class App extends React.Component {
   render () {
     return(
@@ -41,6 +41,7 @@ class App extends React.Component {
           <RouterApp />
           <Pie />
           <DataTable />
+          <ReduxApp />
           */}
         {/*
           <h1>第三選項選完後的圖 partner 2 product</h1>
@@ -58,7 +59,13 @@ class App extends React.Component {
           <RecomPiePr2Pa2Top5Pr />
           <ReasonTablePr2Pa />
           */}
-          <ReduxApp />
+          <h1>第三選項選完後的圖 product 2 partner</h1>
+          <BarTop5Pr2Pa />
+          <h1>第四選項選完後的圖表 product 2 partner</h1>
+          <RecomBarPr2Pa />
+          <RecomPiePr2Pa2Top5Pr />
+          <ReasonTablePr2Pa />
+          <RecomPiePa2Pr2Top5Pa />
       </div>
     )
   }

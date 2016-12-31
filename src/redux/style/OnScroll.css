@@ -1,0 +1,21 @@
+#container {
+  width: 500px;
+  margin: auto;
+}
+
+#heading {
+  text-align: center;
+}
+
+#topDiv {
+  padding:10px;
+  border:1px solid #ccc;
+}
+
+#mainDiv {
+  height:100px;
+  margin-top:50px;
+  padding:100px;
+  border:1px solid #ccc;
+  overflow-y: scroll;
+}

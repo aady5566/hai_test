@@ -3,8 +3,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 // data_results for bar
 import results from '../data/result_wechat_pr2pa_partial.json';
 
-function filter_valueComparison(data,hs2,hs6,topn){//topn: 第 n 個推薦結果 n=1,2,3
-  let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Product[0] === hs6))
+function filter_valueComparison(data,reporter,hs2,hs6,topn){//topn: 第 n 個推薦結果 n=1,2,3
+  let filteredData = data.filter(obj => (obj.Reporter[0] === reporter && obj.HS2CODE[0] === hs2 && obj.Product[0] === hs6))
   // console.log(filteredData[0]["Recommend List"][topn-1]["Predict Sales"]);
   // console.log(filteredData[0]["Recommend List"][topn-1]["Product"][0])
   let recomPartner = filteredData[0]["Recommend List"][topn-1]["Partner"][0] // setting variable as key
@@ -16,7 +16,7 @@ function filter_valueComparison(data,hs2,hs6,topn){//topn: 第 n 個推薦結果
     ],recomPartner
   ]
 }
-let data_bar = filter_valueComparison(results,"05","050400",1)
+let data_bar = filter_valueComparison(results,"China","05","050400",1)
 // console.log(data_bar);
 
 

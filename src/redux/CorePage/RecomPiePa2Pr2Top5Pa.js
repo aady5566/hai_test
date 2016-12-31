@@ -5,8 +5,8 @@ import {PieChart, Pie, Sector, Cell}  from 'recharts';
 // data_raw for pie
 import raws from '../data/raw_wechat_china_hs6_top5pa.json';
 
-function filter_hs6top5Pa(data,reporter,hs2,recom_hs6){
-  let filteredData = data.filter(obj => (obj.rtTitle === reporter && obj.hs2 === hs2 && obj.cmdCode === recom_hs6))
+function filter_hs6top5Pa(data,hs6){
+  let filteredData = data.filter(obj => obj.cmdCode === hs6)
   // console.log(filteredData);
   let newArray = []
   for (let iter = 0; iter < filteredData.length; iter++) {
@@ -19,7 +19,7 @@ function filter_hs6top5Pa(data,reporter,hs2,recom_hs6){
   }
   return newArray
 }
-let data_pie = filter_hs6top5Pa(raws,"China","05","050210")
+// let data_pie = filter_hs6top5Pa(raws,"050210")
 // console.log(data_pie);
 
 // // demo data
@@ -84,6 +84,8 @@ class RecomPiePa2Pr2Top5Pa extends React.Component{
     });
   }
 	render () {
+    const hs6 = this.props.hs6
+    let data_pie = filter_hs6top5Pa(raws,hs6)
   	return (
     	<PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
         <Pie
@@ -96,7 +98,7 @@ class RecomPiePa2Pr2Top5Pa extends React.Component{
           outerRadius={80}
           fill="#8884d8">
           {
-            data_pie.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            data_pie.map((entry, index) => <Cell key={name} fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
        </PieChart>

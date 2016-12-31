@@ -7,8 +7,8 @@ import '../style/Body_Re_info.css';
 import results from '../data/result_wechat_pr2pa_partial.json';
 
 
-function filter_dataTable(data,hs2,hs6,topn){//topn: 第 n 個推薦結果 n=1,2,3 //TODO 四個參數
-  let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Product[0] === hs6))
+function filter_dataTable(data,reporter,hs2,hs6,topn){//topn: 第 n 個推薦結果 n=1,2,3 //TODO 四個參數
+  let filteredData = data.filter(obj => (obj.Reporter[0] === reporter && obj.HS2CODE[0] === hs2 && obj.Product[0] === hs6))
   // data transformation for data.table
   let newArray = []
   for (let iter = 0; iter < 10; iter++) {
@@ -24,7 +24,7 @@ function filter_dataTable(data,hs2,hs6,topn){//topn: 第 n 個推薦結果 n=1,2
   return newArray
 }
 
-let data_datatable = filter_dataTable(results,"05","050400",1)
+let data_datatable = filter_dataTable(results,"China","05","050400",1)
 // console.log(data_datatable);
 
 class ReasonTablePr2Pa extends Component{

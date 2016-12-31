@@ -3,33 +3,36 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 // data_raw for pie
-import raws from '../data/raw_wechat_china_hs6_top5pa.json';
+import raws from '../data/raw_wechat_china_partner_top5pr.json';
 
-function filter_top5ProductValue(data,reporter,hs2,hs6){
-  let filteredData = data.filter(obj => (obj.rtTitle === reporter && obj.hs2 === hs2 && obj.cmdCode === hs6))
-  let productName = filteredData[0].cmdCode // in order to set the bar legend
+
+function filter_top5ProductValue(data,hs2,partner){
+  let filteredData = data.filter(obj => (obj.hs2 === hs2 && obj.ptTitle === partner))
+  let partnerName = filteredData[0].ptTitle // in order to set the bar legend
   // data transformation
   let newArray = []
   for (let iter = 0; iter < filteredData.length; iter++) {
     newArray.push(
       {
-        name:filteredData[iter].ptTitle,
-        [productName]:filteredData[iter].value
+        name:filteredData[iter].cmdCode,
+        [partnerName]:filteredData[iter].value
       }
     )
   }
-  return [newArray,productName]
+  return [newArray,partnerName]
 }
-let data_bar = filter_top5ProductValue(raws,"China","05","050400")
-// console.log(data_bar);
+
 
 
 // // data format demo
 // const data = [{ name: 'a', "Trade Value": 12 },{ name: 'b', "Trade Value": 30 },{ name: 'c', "Trade Value": 16 },{ name: 'd', "Trade Value": 100 },{ name: 'e', "Trade Value": 0 }]
 // console.log(data);
 
-class BarTop5Pr2Pa extends React.Component {
+class BarTop5Pa2Pr extends React.Component {
   render () {
+    const partner = this.props.partner;
+    const hs2 = this.props.hs2;
+    let data_bar = filter_top5ProductValue(raws,hs2,partner)
     return(
       <BarChart width={600} height={300} data={data_bar[0]}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
@@ -44,4 +47,4 @@ class BarTop5Pr2Pa extends React.Component {
   }
 }
 
-export default BarTop5Pr2Pa;
+export default BarTop5Pa2Pr;

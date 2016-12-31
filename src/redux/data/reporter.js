@@ -1,1 +1,1 @@
-exports.country=[{"label":"Afghanistan","value":"afghanistan"},{"label":"Bulgaria","value":"bulgaria"}]
+exports.country=[{"label":"China","value":"china"}]
