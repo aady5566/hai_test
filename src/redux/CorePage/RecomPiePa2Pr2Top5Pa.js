@@ -88,7 +88,7 @@ class RecomPiePa2Pr2Top5Pa extends React.Component{
     // const hs6 = this.props.hs6
     let data_pie = filter_hs6top5Pa(raws,reporter,hs2,recomHs6)
   	return (
-    	<PieChart width={800} height={400} onMouseEnter={this.onPieEnter.bind(this)}>
+    	<PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
         <Pie
         	activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
@@ -99,7 +99,7 @@ class RecomPiePa2Pr2Top5Pa extends React.Component{
           outerRadius={80}
           fill="#8884d8">
           {
-            data_pie.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            data_pie.map((entry, index) => <Cell key={name} fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
        </PieChart>

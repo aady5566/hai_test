@@ -7,10 +7,59 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // 匯入data
-import CountryDATA from '../data/reporter.js';
-import Hs2DATA from '../data/hs2.js';
-import PartnerDATA from '../data/partner.js';
+// import CountryDATA from '../data/reporter.js';
+// import Hs2DATA from '../data/hs2.js';
+// import PartnerDATA from '../data/partner.js';
 import Hs6DATA from '../data/hs6.js';
+
+// getting Options from result data
+import OptionList from '../data/result_wechat_pa2pr_partial.json'
+// data transformation for reporterOptions
+let reporterList = new Set(OptionList.map(obj=>obj.Reporter[0]))//Set: only get unique value in array
+// console.log([...reporterList]);//get array type
+let reporterOptions = []
+for (let iter = 0; iter < [...reporterList].length; iter++) {
+  reporterOptions.push(
+    {
+      label:[...reporterList][iter],
+      value:[...reporterList][iter]
+    }
+  )
+}
+
+// data transformation for partnerOptions
+const partnerList = new Set(OptionList.map(obj=>obj.Partner[0]))
+let partnerOptions = []
+for (let iter = 0; iter < 10; iter++) {
+// for (let iter = 0; iter < [...partnerList].length; iter++) {
+  partnerOptions.push(
+    {
+      label:[...partnerList][iter],
+      value:[...partnerList][iter]
+    }
+  )
+}
+
+// data transformation for hs2Options,理論上從 reporter 來篩，但也可以從 partner 或 hs6 來篩，只要是從 results 資料就好
+let hs2OptionsArray = []
+for (let partner_iter = 0; partner_iter < [...partnerList].length; partner_iter++) {
+  let filteredData = OptionList.filter(obj => obj.Partner[0]===[...partnerList][partner_iter])
+  // console.log(filteredData[0].Partner);
+  hs2OptionsArray.push(
+    {
+      [filteredData[0].Partner]:filteredData.map(obj => {
+          let eachHs2 = {"value":obj.HS2[0],"label":obj.HS2[0]}
+          return eachHs2
+        }
+      )
+    }
+  )
+}
+// array to object
+let hs2Options = {}
+for (let array_iter = 0; array_iter < hs2OptionsArray.length;array_iter++){
+  hs2Options[Object.keys(hs2OptionsArray[array_iter])] = Object.values(hs2OptionsArray[array_iter])[0]
+}
 
 
 //這邊寫從action呼叫的東西
@@ -56,9 +105,12 @@ class HomeCorePage extends Component{
   }
 
   render(){
-    const countrydata = CountryDATA[this.state.country];
-    const hs2data = Hs2DATA[this.state.selectCountryValue];
-    const partnerdata = PartnerDATA[this.state.partner]
+    // const countrydata = CountryDATA[this.state.country];
+    const countrydata = reporterOptions
+    // const hs2data = Hs2DATA[this.state.selectCountryValue];
+    const hs2data = hs2Options[this.state.selectCountryValue];
+    // const partnerdata = PartnerDATA[this.state.partner]
+    const partnerdata = partnerOptions
     const hs6data = Hs6DATA[this.state.hs6];
     return(
       <div>

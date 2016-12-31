@@ -25,24 +25,25 @@ class CorePage extends Component{
 
         <Body/>
 
-        <h4>選擇國家：{this.props.reporter}</h4>
+        <h4>來源國：{this.props.reporter}</h4>
         <h4>選擇hs2：{hs2}</h4>
-        <h4>選擇推薦partner：{this.props.partner}</h4>
+        <h4>選擇出口國：{this.props.partner}</h4>
         <h4>選擇推薦hs6：{this.props.hs6}</h4>
 
 
         <div>
           <h3>測試第三個按鈕圖</h3>
-          {/*<BarTop5Pa2Pr hs2={hs2} partner={this.props.partner}/>*/}
-          <BarTop5Pa2Pr reporter={"China"} hs2={hs2} partner={this.props.partner}/>
+          {/*<BarTop5Pa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner}/>
+         <BarTop5Pa2Pr hs2={hs2} partner={this.props.partner}/>*/}
+          <BarTop5Pa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner}/>
           <h3>第四選項選完後的圖表 partner 2 product - bar</h3>
-          <RecomBarPa2Pr reporter={"China"} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
-
+          <RecomBarPa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
           <h4>第四選項選完後的圖表 partner 2 product - pie</h4>
-          {/*<RecomPiePa2Pr2Top5Pa hs6={this.props.hs6}/>*/}
-          <RecomPiePa2Pr2Top5Pa reporter={"China"} hs2={"05"} recomHs6={"050210"}/>
+          {/*<RecomPiePa2Pr2Top5Pa hs6={this.props.hs6}/>
+        <RecomPiePa2Pr2Top5Pa reporter={this.props.reporter} hs2={"05"} recomHs6={"050210"}/>*/}
+
           <h4>第四選項選完後的圖表 partner 2 product - table</h4>
-          <ReasonTablePa2Pr reporter={"China"} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
+          <ReasonTablePa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
 
         </div>
 

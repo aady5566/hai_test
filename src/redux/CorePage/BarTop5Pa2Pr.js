@@ -34,6 +34,7 @@ class BarTop5Pa2Pr extends React.Component {
     // const partner = this.props.partner;
     // const hs2 = this.props.hs2;
     let data_bar = filter_top5ProductValue(raws,reporter,hs2,partner)
+    console.log(data_bar);
     return(
       <BarChart width={600} height={300} data={data_bar[0]}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
