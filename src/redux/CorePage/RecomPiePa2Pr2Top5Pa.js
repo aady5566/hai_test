@@ -23,7 +23,7 @@ function filter_hs6top5Pa(data,reporter,hs2,recom_hs6){
 // console.log(data_pie);
 
 // // demo data
-// const data = [{name: '美國', value: 400}, {name: '世界', value: 3000},{name: 'ss', value: 400}, {name: 'qq', value: 3000},{name: 'mm', value: 3000}];
+// const data_pie = [{name: '美國', value: 400}, {name: '世界', value: 3000},{name: 'ss', value: 400}, {name: 'qq', value: 3000},{name: 'mm', value: 3000}];
 const COLORS = ['#FFBB28', '#FF8042','#83a6ed', '#00C49F','#a4de6c'];
 
 const renderActiveShape = (props) => {

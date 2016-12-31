@@ -30,8 +30,8 @@ for (let iter = 0; iter < [...reporterList].length; iter++) {
 // data transformation for partnerOptions
 const partnerList = new Set(OptionList.map(obj=>obj.Partner[0]))
 let partnerOptions = []
-for (let iter = 0; iter < 10; iter++) {
-// for (let iter = 0; iter < [...partnerList].length; iter++) {
+// for (let iter = 0; iter < 10; iter++) {
+for (let iter = 0; iter < [...partnerList].length; iter++) {
   partnerOptions.push(
     {
       label:[...partnerList][iter],
