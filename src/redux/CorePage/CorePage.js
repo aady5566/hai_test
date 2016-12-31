@@ -8,7 +8,6 @@ import Body from './Body.js';
 import BarTop5Pa2Pr from './BarTop5Pa2Pr.js';
 // 選了第四個按鈕推薦產品後的結果圖
 import RecomBarPa2Pr from './RecomBarPa2Pr.js';
-import RecomPiePa2Pr2Top5Pa from './RecomPiePa2Pr2Top5Pa.js';
 import ReasonTablePa2Pr from './ReasonTablePa2Pr.js';
 
 
@@ -38,17 +37,13 @@ class CorePage extends Component{
           <BarTop5Pa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner}/>
           <h3>第四選項選完後的圖表 partner 2 product - bar</h3>
           <RecomBarPa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
-          <h4>第四選項選完後的圖表 partner 2 product - pie</h4>
-          {/*<RecomPiePa2Pr2Top5Pa hs6={this.props.hs6}/>
-        <RecomPiePa2Pr2Top5Pa reporter={this.props.reporter} hs2={"05"} recomHs6={"050210"}/>*/}
-
+            {/*NOTE
+              <RecomPiePa2Pr2Top5Pa/>先寫在 RecomBarPa2Pr 內
+              因為要吃 推薦結果的參數 （一層）
+            */}
           <h4>第四選項選完後的圖表 partner 2 product - table</h4>
           <ReasonTablePa2Pr reporter={this.props.reporter} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
-
         </div>
-
-
-
       </div>
     );
   }

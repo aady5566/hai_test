@@ -1,5 +1,6 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
+import RecomPiePa2Pr2Top5Pa from './RecomPiePa2Pr2Top5Pa'
 // data_results for bar
 import results from '../data/result_wechat_pa2pr_partial.json';
 
@@ -27,18 +28,21 @@ class RecomBarPa2Pr extends React.Component {
   render () {
     const { props: { reporter, hs2, partner, hs6 } } = this
     let data_bar = filter_valueComparison(results,reporter,hs2,partner,hs6)
+    // console.log('recompro: '+data_bar[1].substr(0,6));
     return(
-      <BarChart width={600} height={300} data={data_bar[0]}
-            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <XAxis dataKey="name"/>
-       <YAxis hide={true} />
-       <CartesianGrid strokeDasharray="3 3"/>
-       <Tooltip/>
-       <Bar dataKey={data_bar[1]} />
-       <Legend />
-      </BarChart>
+      <div>
+        <BarChart width={600} height={300} data={data_bar[0]}
+              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+         <XAxis dataKey="name"/>
+         <YAxis hide={true} />
+         <CartesianGrid strokeDasharray="3 3"/>
+         <Tooltip/>
+         <Bar dataKey={data_bar[1]} />
+         <Legend />
+        </BarChart>
+        <RecomPiePa2Pr2Top5Pa reporter={this.props.reporter} hs2={hs2} recomHs6={data_bar[1].substr(0,6)}/>
+      </div>
     )
   }
 }
-
 export default RecomBarPa2Pr;

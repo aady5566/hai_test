@@ -85,8 +85,10 @@ class RecomPiePa2Pr2Top5Pa extends React.Component{
   }
 	render () {
     const { props: { reporter,hs2,recomHs6 } } = this
+    // console.log(recomHs6);
+    const recom_hs6 = recomHs6
     // const hs6 = this.props.hs6
-    let data_pie = filter_hs6top5Pa(raws,reporter,hs2,recomHs6)
+    const data_pie = filter_hs6top5Pa(raws,reporter,hs2,recom_hs6)
   	return (
     	<PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
         <Pie
