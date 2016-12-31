@@ -69,12 +69,12 @@ const renderActiveShape = (props) => {
     </g>
   );
 };
-
 class RecomPiePa2Pr2Top5Pa extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      activeIndex: 0
+      activeIndex: 0,
+      data_pie: []
     }
     this.onPieEnter = this.onPieEnter.bind(this);
   }
@@ -83,25 +83,27 @@ class RecomPiePa2Pr2Top5Pa extends React.Component{
       activeIndex: index,
     });
   }
+  componentWillMount(props){
+    const { props: { reporter,hs2,recomTempHs6 } } = this
+    const data_pie = filter_hs6top5Pa(raws,reporter,hs2,recomTempHs6)
+    this.setState({
+     data_pie:data_pie
+    })
+ }
 	render () {
-    const { props: { reporter,hs2,recomHs6 } } = this
-    // console.log(recomHs6);
-    const recom_hs6 = recomHs6
-    // const hs6 = this.props.hs6
-    const data_pie = filter_hs6top5Pa(raws,reporter,hs2,recom_hs6)
   	return (
     	<PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
         <Pie
         	activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
-          data={data_pie}
+          data={this.state.data_pie}
           cx={300}
           cy={200}
-          innerRadius={60}
-          outerRadius={80}
+          innerRadius={100}
+          outerRadius={120}
           fill="#8884d8">
           {
-            data_pie.map((entry, index) => <Cell key={name} fill={COLORS[index % COLORS.length]}/>)
+            this.state.data_pie.map((entry, index) => <Cell key={name} fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
        </PieChart>

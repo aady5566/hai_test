@@ -40,7 +40,7 @@ class RecomBarPa2Pr extends React.Component {
          <Bar dataKey={data_bar[1]} />
          <Legend />
         </BarChart>
-        <RecomPiePa2Pr2Top5Pa reporter={this.props.reporter} hs2={hs2} recomHs6={data_bar[1].substr(0,6)}/>
+        <RecomPiePa2Pr2Top5Pa reporter={this.props.reporter} hs2={hs2} recomTempHs6={data_bar[1].substr(0,6)}/>
       </div>
     )
   }
