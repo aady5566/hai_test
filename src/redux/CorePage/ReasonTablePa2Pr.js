@@ -7,8 +7,8 @@ import '../style/Body_Re_info.css';
 import results from '../data/result_wechat_pa2pr_partial.json';
 
 
-function filter_dataTable(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
-  let filteredData = data.filter(obj => (obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
+function filter_dataTable(data,reporter,hs2,partner,topn){//topn: 第 n 個推薦結果 n=1,2,3
+  let filteredData = data.filter(obj => (obj.Reporter[0] === reporter && obj.HS2CODE[0] === hs2 && obj.Partner[0] === partner))
   // data transformation for data.table
   let newArray = []
   for (let iter = 0; iter < 10; iter++) {
@@ -28,10 +28,11 @@ function filter_dataTable(data,hs2,partner,topn){//topn: 第 n 個推薦結果 n
 
 class ReasonTablePa2Pr extends Component{
   render(){
-    const hs2 = this.props.hs2;
-    const partner = this.props.partner;
-    const hs6 = this.props.hs6;
-    let data_datatable = filter_dataTable(results,hs2,partner,hs6)
+    const { props: { reporter, hs2, partner, hs6 } } = this
+    // const hs2 = this.props.hs2;
+    // const partner = this.props.partner;
+    // const hs6 = this.props.hs6;
+    let data_datatable = filter_dataTable(results,reporter,hs2,partner,hs6)
     return(
       <div className="body_rePro_info_DT">
         <div className="body_rePro_info_DT-left">

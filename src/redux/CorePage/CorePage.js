@@ -34,15 +34,15 @@ class CorePage extends Component{
         <div>
           <h3>測試第三個按鈕圖</h3>
           {/*<BarTop5Pa2Pr hs2={hs2} partner={this.props.partner}/>*/}
-
+          <BarTop5Pa2Pr reporter={"China"} hs2={hs2} partner={this.props.partner}/>
           <h3>第四選項選完後的圖表 partner 2 product - bar</h3>
-          <RecomBarPa2Pr hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
+          <RecomBarPa2Pr reporter={"China"} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
 
           <h4>第四選項選完後的圖表 partner 2 product - pie</h4>
           {/*<RecomPiePa2Pr2Top5Pa hs6={this.props.hs6}/>*/}
-
+          <RecomPiePa2Pr2Top5Pa reporter={"China"} hs2={"05"} recomHs6={"050210"}/>
           <h4>第四選項選完後的圖表 partner 2 product - table</h4>
-          <ReasonTablePa2Pr hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
+          <ReasonTablePa2Pr reporter={"China"} hs2={hs2} partner={this.props.partner} hs6={this.props.hs6}/>
 
         </div>
 
