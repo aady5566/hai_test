@@ -3,24 +3,24 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 // data_raw for pie
-import raws from '../data/raw_wechat_china_partner_top5pr.json';
+import raws from '../data/raw_wechat_china_hs6_top5pa.json';
 
-function filter_top5ProductValue(data,hs2,partner){//topn: 第 n 個推薦結果 n=1,2,3
-  let filteredData = data.filter(obj => (obj.hs2 === hs2 && obj.ptTitle === partner))
-  let partnerName = filteredData[0].ptTitle // in order to set the bar legend
+function filter_top5ProductValue(data,hs2,hs6){
+  let filteredData = data.filter(obj => (obj.hs2 === hs2 && obj.cmdCode === hs6))
+  let productName = filteredData[0].cmdCode // in order to set the bar legend
   // data transformation
   let newArray = []
   for (let iter = 0; iter < filteredData.length; iter++) {
     newArray.push(
       {
-        name:filteredData[iter].cmdCode,
-        [partnerName]:filteredData[iter].value
+        name:filteredData[iter].ptTitle,
+        [productName]:filteredData[iter].value
       }
     )
   }
-  return [newArray,partnerName]
+  return [newArray,productName]
 }
-let data_bar = filter_top5ProductValue(raws,"85","Afghanistan")
+let data_bar = filter_top5ProductValue(raws,"05","050400")
 // console.log(data_bar);
 
 
@@ -28,7 +28,7 @@ let data_bar = filter_top5ProductValue(raws,"85","Afghanistan")
 // const data = [{ name: 'a', "Trade Value": 12 },{ name: 'b', "Trade Value": 30 },{ name: 'c', "Trade Value": 16 },{ name: 'd', "Trade Value": 100 },{ name: 'e', "Trade Value": 0 }]
 // console.log(data);
 
-class BarTop5Pa2Pr extends React.Component {
+class BarTop5Pr2Pa extends React.Component {
   render () {
     return(
       <BarChart width={600} height={300} data={data_bar[0]}
@@ -44,4 +44,4 @@ class BarTop5Pa2Pr extends React.Component {
   }
 }
 
-export default BarTop5Pa2Pr;
+export default BarTop5Pr2Pa;
